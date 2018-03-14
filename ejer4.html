@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <h1 id="bum"> ¡¡¡ La bomba !!! </h1>
+  <h2 id="timer">5</h2>
+  <script>
+  var timer_tag = document.getElementById('timer');
+  var timer = timer_tag.innerHTML;
+
+  timer = parseInt(timer);
+
+  var time_interval = setInterval(function(){
+    timer = timer - 1
+
+    if (timer == 0) {
+
+      var mensaje = document.getElementById('bum')
+      alert(mensaje.innerHTML)
+      mensaje.innerHTML = 'BOOM!!!'
+      document.body.style.backgroundColor = "red";
+      salir()
+
+    }
+
+    function salir() {
+      clearInterval(time_interval) // mata el proceso
+    }
+
+   timer_tag.innerHTML = timer
+  }, 1000);
+
+  </script>
+</body>
+</html>
